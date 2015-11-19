@@ -1,0 +1,22 @@
+{
+	"name": "regextag",
+	"version": "1.0.0-alpha.1",
+	"description": "Template literals tag for easy regular expressions",
+	"license": "WTFPL",
+	"main": "regextag.js",
+	"engines": {
+		"node": ">=3"
+	},
+	"scripts": {
+		"transpile": "./node_modules/.bin/babel source/regextag.es6.js --out-file regextag.js"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.2.0",
+		"babel-preset-es2015": "^6.1.18"
+	},
+	"keywords": [
+		"regexp",
+		"template",
+		"literals"
+	]
+}
