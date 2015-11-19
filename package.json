@@ -2,13 +2,19 @@
 	"name": "regextag",
 	"version": "1.0.0-alpha.1",
 	"description": "Template literals tag for easy regular expressions",
-	"license": "WTFPL",
 	"main": "regextag.js",
+	"license": "WTFPL",
+	"author": "Anton Khlynovskiy <subzey@gmail.com>",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/subzey/RegExTag.git"
+	},
 	"engines": {
 		"node": ">=3"
 	},
 	"scripts": {
-		"transpile": "./node_modules/.bin/babel source/regextag.es6.js --out-file regextag.js"
+		"transpile": "./node_modules/.bin/babel source/regextag.es6.js --out-file regextag.js",
+		"prepublish": "npm run transpile"
 	},
 	"devDependencies": {
 		"babel-cli": "^6.2.0",
