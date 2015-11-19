@@ -1,27 +1,27 @@
 "use strict";
 /*jshint node:true, esnext:true*/
 
-let _escape = function(str) {
+const _escape = function(str) {
 	return String(str).replace(/[!-\/[-^{-}]/g, '\\$&');
 };
 
-let _dotAll = function(pattern) {
+const _dotAll = function(pattern) {
 	let inBrace = false;
 	let startIndex = 0;
 	let retVal = '';
-	for (let i=0; i< pattern.length; i++){
+	for (let i = 0; i < pattern.length; i++) {
 		let character = pattern[i];
-		if (character === '\\'){
+		if (character === '\\') {
 			i++;
-		} else if (inBrace){
-			if (character === ']'){
+		} else if (inBrace) {
+			if (character === ']') {
 				inBrace = false;
 			}
 		} else {
-			if (character === '.'){
+			if (character === '.') {
 				retVal += pattern.slice(startIndex, i) + '[^]';
 				startIndex = i + 1;
-			} else if (character === '['){
+			} else if (character === '[') {
 				inBrace = true;
 			}
 		}
@@ -29,7 +29,7 @@ let _dotAll = function(pattern) {
 	return retVal + pattern.slice(startIndex);
 };
 
-let _compile = function(chunks, substitutes, flags) {
+const _compile = function(chunks, substitutes, flags) {
 	const outChunks = [];
 	for (let idx = 0; idx < chunks.length; idx++) {
 		let str = chunks[idx];
@@ -61,8 +61,10 @@ let _compile = function(chunks, substitutes, flags) {
 	return new RegExp(pattern, flagsStrArray.join(''));
 };
 
-export default function RegExTag (flags) {
-	return function({raw: chunks}, ...substitutes){
+export default function RegExTag(flags) {
+	return function({
+		raw: chunks
+	}, ...substitutes) {
 		return _compile(chunks, substitutes, flags);
 	};
 }
