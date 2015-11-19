@@ -86,7 +86,7 @@ RegExTag () `Foo\s*bar`; // /foo\s*bar/
 
 ```
 
-You can use template listeral substitutions and it would be escaped for you.
+You can use template literal substitutions and it would be escaped for you.
 
 ```javascript
 
