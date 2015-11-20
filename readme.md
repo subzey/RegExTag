@@ -98,4 +98,4 @@ RegExTag () `^foo${variable}bar`; // /foo\.\*bar/
 
 ## ToDo:
 
-- [ ] Write tests
+- Code coverage

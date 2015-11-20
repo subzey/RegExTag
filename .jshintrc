@@ -1,0 +1,8 @@
+{
+	"eqnull": true, /* foo == null */
+	"-W004": true, /* multiple var declarations of same variable */
+	"-W018": true, /* confusing use of ! */
+	"node": true,
+	"esnext": true,
+	"globalstrict": true
+}

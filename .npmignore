@@ -1,5 +1,8 @@
 source
+test
 .babelrc
 .editorconfig
+.jscsrc
+.jshintrc
 .gitignore
 .npmignore

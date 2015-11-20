@@ -1,5 +1,4 @@
-"use strict";
-/*jshint node:true, esnext:true*/
+'use strict';
 
 const _escape = function(str) {
 	return String(str).replace(/[!-\/[-^{-}]/g, '\\$&');
@@ -26,6 +25,7 @@ const _dotAll = function(pattern) {
 			}
 		}
 	}
+
 	return retVal + pattern.slice(startIndex);
 };
 
@@ -36,32 +36,43 @@ const _compile = function(chunks, substitutes, flags) {
 		if (flags.verbose) {
 			str = str.replace(/#.*|\s+/g, '');
 		}
+
 		outChunks.push(str);
 		if (substitutes.length > idx) {
 			outChunks.push(_escape(substitutes[idx]));
 		}
 	}
+
 	let flagsStrArray = [];
 	if (flags.global) {
 		flagsStrArray.push('g');
 	}
+
 	if (flags.ignoreCase) {
 		flagsStrArray.push('i');
 	}
+
 	if (flags.multiline) {
 		flagsStrArray.push('m');
 	}
+
 	if (flags.sticky) {
 		flagsStrArray.push('y');
 	}
+
+	if (flags.unicode) {
+		flagsStrArray.push('u');
+	}
+
 	let pattern = outChunks.join('');
 	if (flags.dotAll) {
 		pattern = _dotAll(pattern);
 	}
+
 	return new RegExp(pattern, flagsStrArray.join(''));
 };
 
-export default function RegExTag(flags) {
+export default function RegExTag(flags = {}) {
 	return function({
 		raw: chunks
 	}, ...substitutes) {
