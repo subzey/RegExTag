@@ -1,6 +1,6 @@
 # RegExTag
 
-[![NPM][npm-badge]][npm-link]
+[!["npm install regextag"][npm-badge]][npm-link]
 
 This is a tag for template literals that allows you create regular expressions more easily.
 
