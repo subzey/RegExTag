@@ -1,6 +1,6 @@
 {
 	"name": "regextag",
-	"version": "1.0.0-rc.1",
+	"version": "1.0.0-rc.2",
 	"description": "Template literals tag for easy regular expressions",
 	"main": "regextag.js",
 	"license": "WTFPL",
@@ -12,25 +12,28 @@
 		"type": "git",
 		"url": "https://github.com/subzey/RegExTag.git"
 	},
+	"bugs": {
+		"url": "https://github.com/subzey/RegExTag/issues"
+	},
 	"engines": {
-		"node": ">=3"
+		"node": ">=1"
 	},
 	"scripts": {
 		"jshint": "jshint ./source ./test",
 		"jscs": "jscs ./source ./test",
 		"mocha": "mocha",
 		"babel": "babel source/regextag.es6.js --out-file regextag.js",
-
 		"groom": "npm run jshint && npm run jscs",
 		"test": "npm run babel && npm run test",
-
-		"prepublish": "npm run groom && npm run babel && npm run mocha",
-		"pre-commit": "npm run prepublish"
+		"cover": "istanbul cover node_modules/mocha/bin/_mocha && istanbul check-coverage --statements 100 --functions 100 --branches 100 --lines 100",
+		"prepublish": "npm run groom && npm run babel && npm run mocha && npm run cover",
+		"pre-commit": "npm run groom"
 	},
 	"devDependencies": {
 		"babel-cli": "^6.2.0",
 		"babel-plugin-add-module-exports": "^0.1.1",
 		"babel-preset-es2015": "^6.1.18",
+		"istanbul": "^0.4.0",
 		"jscs": "^2.5.1",
 		"jshint": "^2.8.0",
 		"mocha": "^2.3.4"

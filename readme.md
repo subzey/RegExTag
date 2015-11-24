@@ -1,5 +1,7 @@
 # RegExTag
 
+[![NPM](https://nodei.co/npm/regextag.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/regextag/)
+
 This is a tag for template literals that allows you create regular expressions more easily.
 
 ## Requirements
@@ -52,6 +54,16 @@ RegExTag ({sticky: true}) `foobar`; // If you're lucky enough, then /foobar/y
 
 ```
 
+### `unicode`
+
+An experimental regexp modifier. May be unsupported by your engine.
+
+```javascript
+
+RegExTag ({uncode: true}) `foobar`; // If you're lucky enough, then /foobar/u
+
+```
+
 ### `verbose`
 
 Not a regexp modifier but rather a parser option. Ignores all the whitespaces in the template and adds comments starting from `#`.
@@ -95,7 +107,3 @@ let variable = '.*';
 RegExTag () `^foo${variable}bar`; // /foo\.\*bar/
 
 ```
-
-## ToDo:
-
-- Code coverage
