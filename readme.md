@@ -1,6 +1,6 @@
 # RegExTag
 
-[![NPM](https://nodei.co/npm/regextag.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/regextag/)
+[![NPM][npm-badge]][npm-link]
 
 This is a tag for template literals that allows you create regular expressions more easily.
 
@@ -20,7 +20,7 @@ let myRegexp = RegExTag({ignoreCase: true, verbose: true})`
     .*   # Match every char
     ${n} # Then contents of the n variable
     $    # End of the line
-`
+`;
 
 myRegexp; //  /^.*42$/i
 
@@ -32,7 +32,7 @@ The overall usage is: ``` RegExTag ( ``` options ``` ) ` ``` template ``` ` ```
 
 Options is an object with the following boolean fileds.
 
-### `global`, `ignoreCase`, `multiline`
+### [`global`][mdn-global], [`ignoreCase`][mdn-ignorecase], [`multiline`][mdn-multiline]
 
 Works just as usual regexp modifiers.
 
@@ -44,7 +44,7 @@ RegExTag ({global: true, ignoreCase: true, multiline: true}) `foobar`; // /fooba
 
 Note that `ignoreCase` name is, unfortunately, case dependent.
 
-### `sticky`
+### [`sticky`][mdn-sticky]
 
 An experimental regexp modifier. May be unsupported by your engine.
 
@@ -54,13 +54,13 @@ RegExTag ({sticky: true}) `foobar`; // If you're lucky enough, then /foobar/y
 
 ```
 
-### `unicode`
+### [`unicode`][mdn-unicode]
 
 An experimental regexp modifier. May be unsupported by your engine.
 
 ```javascript
 
-RegExTag ({uncode: true}) `foobar`; // If you're lucky enough, then /foobar/u
+RegExTag ({unicode: true}) `foobar`; // If you're lucky enough, then /foobar/u
 
 ```
 
@@ -107,3 +107,12 @@ let variable = '.*';
 RegExTag () `^foo${variable}bar`; // /foo\.\*bar/
 
 ```
+
+[npm-badge]: https://nodei.co/npm/regextag.png?downloads=true&downloadRank=true&stars=true "npm install regextag"
+[npm-link]: https://www.npmjs.com/package/regextag
+
+[mdn-global]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global
+[mdn-ignorecase]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase
+[mdn-multiline]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline
+[mdn-sticky]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky
+[mdn-unicode]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode
