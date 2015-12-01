@@ -1,6 +1,6 @@
 {
 	"name": "regextag",
-	"version": "1.0.0-rc.2",
+	"version": "1.0.0",
 	"description": "Template literals tag for easy regular expressions",
 	"main": "regextag.js",
 	"license": "WTFPL",
